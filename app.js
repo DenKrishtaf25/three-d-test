@@ -27,17 +27,21 @@ function init() {
   const light = new THREE.DirectionalLight(0xffffff, 2);
   light.position.set(50, 50, 100);
   scene.add(light);
+
+
+  //
+  const grass_texture = new THREE.TextureLoader().load('./house/textures/Material_diffuse2.png');
+  const mat_saya = new THREE.MeshBasicMaterial({ map: grass_texture, wireframe: true });
+  let mash_saya = new THREE.Mesh(mat_saya);
+  scene.add(mash_saya);
+  //
+
   //Renderer
   renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setSize(container.clientWidth, container.clientHeight);
   renderer.setPixelRatio(window.devicePixelRatio);
 
-  //
-  const grass_texture = new THREE.TextureLoader().load('./house/textures/Material_diffuse2.png');
-  const mat_saya = new THREE.MeshBasicMaterial({map : grass_texture, wireframe:true});
-  let mash_saya = new THREE.Mesh(mat_saya);
-  scene.add(mash_saya);
-  //
+  
 
 
   container.appendChild(renderer.domElement);
