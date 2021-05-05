@@ -6,12 +6,6 @@ let renderer;
 let scene;
 let house;
 
-let map;
-
-const params = {
-  showMap: false,
-};
-
 function init() {
   container = document.querySelector(".scene");
 
@@ -47,64 +41,7 @@ function init() {
     house = gltf.scene.children[0];
     animate();
   });
-
-//
-  mesh = new THREE.MeshStandardMaterial();
-  mesh.material.flatShading = !params.smoothShading;
-  if (map !== undefined && params.showMap) {
-
-    mesh.material.map = map;
-    mesh.material.needsUpdate = true;
-
-  }
-
-  render();
-
-//
-
 }
-
-
-
-
-
-
-  // function (group) {
-
-  //   const cerberus = group.children[0];
-  //   const modelGeometry = cerberus.geometry;
-
-  //   modifier = new EdgeSplitModifier();
-  //   baseGeometry = BufferGeometryUtils.mergeVertices(modelGeometry);
-
-  //   mesh = new THREE.Mesh(getGeometry(), new THREE.MeshStandardMaterial());
-  //   mesh.material.flatShading = !params.smoothShading;
-  //   mesh.rotateY(- Math.PI / 2);
-  //   mesh.scale.set(3.5, 3.5, 3.5);
-  //   mesh.translateZ(1.5);
-  //   scene.add(mesh);
-
-  //   if (map !== undefined && params.showMap) {
-
-  //     mesh.material.map = map;
-  //     mesh.material.needsUpdate = true;
-
-  //   }
-
-  //   render();
-
-  // }
-
-
-
-
-
-
-
-
-
-
-
 
 function animate() {
   requestAnimationFrame(animate);
@@ -124,20 +61,76 @@ function onWindowResize() {
 window.addEventListener("resize", onWindowResize);
 
 
-//
-new THREE.TextureLoader().load('./house/textures/Material_diffuse2.png', function (texture) {
 
-  map = texture;
 
-  if (mesh !== undefined && params.showMap) {
 
-    mesh.material.map = map;
-    mesh.material.needsUpdate = true;
+
+
+// CHARACTER
+
+const config = {
+
+  skins: ["Material_diffuse.png", "Material_diffuse2.png"]
+  
+};
+
+character = new MD2Character();
+character.scale = 1;
+
+character.onLoadComplete = function () {
+
+  setupSkinsGUI(character);
+
+};
+
+
+character.loadParts(config);
+
+
+
+// GUI
+
+function labelize(text) {
+
+  const parts = text.split(".");
+
+  if (parts.length > 1) {
+
+    parts.length -= 1;
+    return parts.join(".");
 
   }
 
-});
+  return text;
 
-const gui = new GUI({ name: 'Edge split modifier parameters' });
+}
 
-gui.add(params, 'showMap').onFinishChange(updateMesh);
+
+
+
+function setupSkinsGUI(character) {
+
+  const folder = gui.addFolder("Skins");
+
+  const generateCallback = function (index) {
+
+    return function () {
+
+      character.setSkin(index);
+
+    };
+
+  };
+
+  const guiItems = [];
+
+  for (let i = 0; i < character.skinsBody.length; i++) {
+
+    const name = character.skinsBody[i].name;
+
+    playbackConfig[name] = generateCallback(i);
+    guiItems[i] = folder.add(playbackConfig, name).name(labelize(name));
+
+  }
+
+}
