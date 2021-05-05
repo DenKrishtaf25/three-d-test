@@ -32,6 +32,14 @@ function init() {
   renderer.setSize(container.clientWidth, container.clientHeight);
   renderer.setPixelRatio(window.devicePixelRatio);
 
+  //
+  const grass_texture = new THREE.TextureLoader().load('./house/textures/Material_diffuse2.png');
+  const mat_saya = new THREE.MeshBasicMaterial({map : grass_texture, wireframe:true});
+  let mash_saya = new THREE.Mesh(mat_saya);
+  scene.add(mash_saya);
+  //
+
+
   container.appendChild(renderer.domElement);
 
   //Load Model
@@ -59,78 +67,3 @@ function onWindowResize() {
 }
 
 window.addEventListener("resize", onWindowResize);
-
-
-
-
-
-
-
-// CHARACTER
-
-const config = {
-
-  skins: ["Material_diffuse.png", "Material_diffuse2.png"]
-  
-};
-
-character = new MD2Character();
-character.scale = 1;
-
-character.onLoadComplete = function () {
-
-  setupSkinsGUI(character);
-
-};
-
-
-character.loadParts(config);
-
-
-
-// GUI
-
-function labelize(text) {
-
-  const parts = text.split(".");
-
-  if (parts.length > 1) {
-
-    parts.length -= 1;
-    return parts.join(".");
-
-  }
-
-  return text;
-
-}
-
-
-
-
-function setupSkinsGUI(character) {
-
-  const folder = gui.addFolder("Skins");
-
-  const generateCallback = function (index) {
-
-    return function () {
-
-      character.setSkin(index);
-
-    };
-
-  };
-
-  const guiItems = [];
-
-  for (let i = 0; i < character.skinsBody.length; i++) {
-
-    const name = character.skinsBody[i].name;
-
-    playbackConfig[name] = generateCallback(i);
-    guiItems[i] = folder.add(playbackConfig, name).name(labelize(name));
-
-  }
-
-}
