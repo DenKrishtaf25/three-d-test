@@ -214,11 +214,7 @@
   "extensionsUsed": [
     "KHR_materials_pbrSpecularGlossiness"
   ],
-  "images": [
-    {
-      "uri": "textures/Material_diffuse.png"
-    }
-  ],
+ 
   "materials": [
     {
       "doubleSided": true,

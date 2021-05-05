@@ -44,12 +44,12 @@ function init() {
     scene.add(gltf.scene);
     house = gltf.scene.children[0];
 
-    //
-    const grass_texture = new THREE.TextureLoader().load('./house/textures/Material_diffuse2.png');
-    const mat_saya = new THREE.MeshBasicMaterial({ map: grass_texture, wireframe: true });
-    let mash_saya = new THREE.Mesh(mat_saya);
-    scene.add(mash_saya);
-  //
+  //   //
+  //   const grass_texture = new THREE.TextureLoader().load('./house/textures/Material_diffuse2.png');
+  //   const mat_saya = new THREE.MeshBasicMaterial({ map: grass_texture, wireframe: true });
+  //   let mash_saya = new THREE.Mesh(mat_saya);
+  //   scene.add(mash_saya);
+  // //
 
     animate();
   });
