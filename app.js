@@ -28,6 +28,13 @@ function init() {
   light.position.set(50, 50, 100);
   scene.add(light);
 
+  //Renderer
+  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  renderer.setPixelRatio(window.devicePixelRatio);
+
+  container.appendChild(renderer.domElement);
+
 
   //
   const grass_texture = new THREE.TextureLoader().load('./house/textures/Material_diffuse2.png');
@@ -35,16 +42,6 @@ function init() {
   let mash_saya = new THREE.Mesh(mat_saya);
   scene.add(mash_saya);
   //
-
-  //Renderer
-  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  renderer.setSize(container.clientWidth, container.clientHeight);
-  renderer.setPixelRatio(window.devicePixelRatio);
-
-  
-
-
-  container.appendChild(renderer.domElement);
 
   //Load Model
   let loader = new THREE.GLTFLoader();
