@@ -49,7 +49,7 @@ function init() {
   });
 
 //
-  mesh = new THREE.MeshStandardMaterial());
+  mesh = new THREE.MeshStandardMaterial();
   mesh.material.flatShading = !params.smoothShading;
   if (map !== undefined && params.showMap) {
 
