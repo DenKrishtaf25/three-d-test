@@ -216,7 +216,7 @@
   ],
   "images": [
     {
-      "uri2": "textures/Material_diffuse2.png"
+      "uri": "textures/Material_diffuse.png"
     }
   ],
   "materials": [
