@@ -42,7 +42,7 @@ function init() {
   let loader = new THREE.GLTFLoader();
   loader.load("./house/scene.gltf", function(gltf) {
     scene.add(gltf.scene);
-    house = gltf.scene.children[0];
+    house = gltf.scene;
 
     animate();
   });
