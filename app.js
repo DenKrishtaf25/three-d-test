@@ -19,7 +19,7 @@ function init() {
 
   //Camera setup
   camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-  camera.position.set(1, 1, 5);
+  camera.position.set(1, 2, 5);
 
   const ambient = new THREE.AmbientLight(0x404040, 2);
   scene.add(ambient);
@@ -50,7 +50,7 @@ function init() {
 
 function animate() {
   requestAnimationFrame(animate);
-  house.rotation.x += 0.005;
+  house.rotation.z += 0.005;
   renderer.render(scene, camera);
 }
 
