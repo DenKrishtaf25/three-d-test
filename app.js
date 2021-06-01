@@ -44,15 +44,16 @@ function init() {
     scene.add(gltf.scene);
     house = gltf.scene.children[0];
 
-    animate();
+    
   });
 }
 
 function animate() {
   requestAnimationFrame(animate);
-  house.rotation.z += 0.05;
+  house.rotation.z += 0.005;
   renderer.render(scene, camera);
 }
+animate();
 
 init();
 
