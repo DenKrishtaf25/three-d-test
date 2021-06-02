@@ -52,58 +52,7 @@ function init() {
 
     animate();
   });
-
-
-
-  /////////////
-  containerQ = document.querySelector(".scene2");
-
-  //Create scene
-  sceneQ = new THREE.Scene();
-
-  const fovQ = 35;
-  const aspectQ = containerQ.clientWidth / containerQ.clientHeight;
-  const nearQ = 0.1;
-  const farQ = 1000;
-
-  //Camera setup
-  cameraQ = new THREE.PerspectiveCamera(fovQ, aspectQ, nearQ, farQ);
-  cameraQ.position.set(1, 2, 10);
-
-  const ambientQ = new THREE.AmbientLight(0x404040, 2);
-  sceneQ.add(ambientQ);
-
-  const lightQ = new THREE.DirectionalLight(0xffffff, 2);
-  lightQ.position.set(50, 50, 100);
-  sceneQ.add(lightQ);
-
-  //Renderer
-  rendererQ = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  rendererQ.setSize(containerQ.clientWidth, containerQ.clientHeight);
-  rendererQ.setPixelRatio(window.devicePixelRatio);
-
-  containerQ.appendChild(rendererQ.domElement);
-
-
-
-
-  //Load Model
-  let loaderQ = new THREE.GLTFLoader();
-  loaderQ.load("./house/scene2.gltf", function (gltf) {
-    sceneQ.add(gltf.sceneQ);
-    houseQ = gltf.sceneQ;
-
-    animateQ();
-  });
-  /////////
 }
-////
-function animateQ() {
-  requestAnimationFrame(animateQ);
-  houseQ.rotation.y += 0.009;
-  rendererQ.render(sceneQ, cameraQ);
-}
-/////
 
 function animate() {
   requestAnimationFrame(animate);
@@ -121,15 +70,6 @@ function onWindowResize() {
 }
 
 window.addEventListener("resize", onWindowResize);
-
-///////
-function onWindowResize() {
-  cameraQ.aspect = containerQ.clientWidth / containerQ.clientHeight;
-  cameraQ.updateProjectionMatrix();
-
-  rendererQ.setSize(containerQ.clientWidth, containerQ.clientHeight);
-}
-
 
 
 
