@@ -1,11 +1,4 @@
 //Variables for setup
-
-let containerQ;
-let cameraQ;
-let rendererQ;
-let sceneQ;
-let houseQ;
-
 let container;
 let camera;
 let renderer;
@@ -25,7 +18,7 @@ function init() {
 
   //Camera setup
   camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-  camera.position.set(0, 2, 10);
+  camera.position.set(0, 5, 10);
 
   const ambient = new THREE.AmbientLight(0x404040, 2);
   scene.add(ambient);
