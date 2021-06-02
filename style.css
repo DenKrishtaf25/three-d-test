@@ -10,10 +10,15 @@ body {
   background: url("https://wallpaperaccess.com/full/1155041.jpg");
 }
 
-.scene, .scene2, canvas {
+.scene, canvas {
   position: absolute;
   width: 100%;
   height: 100%;
+}
+.scene2{
+  position: absolute;
+  width: 50%;
+  height: 50%;
 }
 h1{
   color: aliceblue;

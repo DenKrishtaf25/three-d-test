@@ -1,6 +1,10 @@
 //Variables for setup
 
 let containerQ;
+let cameraQ;
+let rendererQ;
+let sceneQ;
+let houseQ;
 
 let container;
 let camera;
@@ -70,10 +74,10 @@ window.addEventListener("resize", onWindowResize);
 ///////
 
 function init() {
-  containerQ = document.querySelector(".scene");
+  containerQ = document.querySelector(".scene2");
 
   //Create scene
-  scene = new THREE.Scene();
+  sceneQ = new THREE.Scene();
 
   const fov = 35;
   const aspect = containerQ.clientWidth / containerQ.clientHeight;
@@ -81,22 +85,22 @@ function init() {
   const far = 1000;
 
   //Camera setup
-  camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-  camera.position.set(1, 2, 10);
+  cameraQ = new THREE.PerspectiveCamera(fov, aspect, near, far);
+  cameraQ.position.set(1, 2, 10);
 
   const ambient = new THREE.AmbientLight(0x404040, 2);
-  scene.add(ambient);
+  sceneQ.add(ambient);
 
   const light = new THREE.DirectionalLight(0xffffff, 2);
   light.position.set(50, 50, 100);
-  scene.add(light);
+  sceneQ.add(light);
 
   //Renderer
-  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  renderer.setSize(containerQ.clientWidth, containerQ.clientHeight);
-  renderer.setPixelRatio(window.devicePixelRatio);
+  rendererQ = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  rendererQ.setSize(containerQ.clientWidth, containerQ.clientHeight);
+  rendererQ.setPixelRatio(window.devicePixelRatio);
 
-  containerQ.appendChild(renderer.domElement);
+  containerQ.appendChild(rendererQ.domElement);
 
 
 
@@ -104,26 +108,26 @@ function init() {
   //Load Model
   let loader = new THREE.GLTFLoader();
   loader.load("./house/scene.gltf", function (gltf) {
-    scene.add(gltf.scene);
-    house = gltf.scene;
+    sceneQ.add(gltf.sceneQ);
+    houseQ = gltf.sceneQ;
 
     animate();
   });
 }
 
-function animate() {
-  requestAnimationFrame(animate);
-  house.rotation.y += 0.009;
-  renderer.render(scene, camera);
-}
+// function animate() {
+//   requestAnimationFrame(animate);
+//   houseQ.rotation.y += 0.009;
+//   rendererQ.render(sceneQ, cameraQ);
+// }
 
 init();
 
 function onWindowResize() {
-  camera.aspect = containerQ.clientWidth / containerQ.clientHeight;
-  camera.updateProjectionMatrix();
+  cameraQ.aspect = containerQ.clientWidth / containerQ.clientHeight;
+  cameraQ.updateProjectionMatrix();
 
-  renderer.setSize(containerQ.clientWidth, containerQ.clientHeight);
+  rendererQ.setSize(containerQ.clientWidth, containerQ.clientHeight);
 }
 
 window.addEventListener("resize", onWindowResize);
