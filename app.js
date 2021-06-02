@@ -111,15 +111,15 @@ function init() {
     sceneQ.add(gltf.sceneQ);
     houseQ = gltf.sceneQ;
 
-    animate();
+    animateQ();
   });
 }
 
-// function animate() {
-//   requestAnimationFrame(animate);
-//   houseQ.rotation.y += 0.009;
-//   rendererQ.render(sceneQ, cameraQ);
-// }
+function animateQ() {
+  requestAnimationFrame(animateQ);
+  houseQ.rotation.y += 0.009;
+  rendererQ.render(sceneQ, cameraQ);
+}
 
 init();
 
