@@ -10,7 +10,7 @@ body {
   background: url("https://wallpaperaccess.com/full/1155041.jpg");
 }
 
-.scene{
+.scene, .scene2, canvas {
   position: absolute;
   width: 100%;
   height: 100%;
