@@ -70,12 +70,12 @@ function init() {
   cameraQ = new THREE.PerspectiveCamera(fovQ, aspectQ, nearQ, farQ);
   cameraQ.position.set(1, 2, 10);
 
-  const ambient = new THREE.AmbientLight(0x404040, 2);
-  sceneQ.add(ambient);
+  const ambientQ = new THREE.AmbientLight(0x404040, 2);
+  sceneQ.add(ambientQ);
 
-  const light = new THREE.DirectionalLight(0xffffff, 2);
-  light.position.set(50, 50, 100);
-  sceneQ.add(light);
+  const lightQ = new THREE.DirectionalLight(0xffffff, 2);
+  lightQ.position.set(50, 50, 100);
+  sceneQ.add(lightQ);
 
   //Renderer
   rendererQ = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -88,8 +88,8 @@ function init() {
 
 
   //Load Model
-  let loader = new THREE.GLTFLoader();
-  loader.load("./house/scene2.gltf", function (gltf) {
+  let loaderQ = new THREE.GLTFLoader();
+  loaderQ.load("./house/scene2.gltf", function (gltf) {
     sceneQ.add(gltf.sceneQ);
     houseQ = gltf.sceneQ;
 
