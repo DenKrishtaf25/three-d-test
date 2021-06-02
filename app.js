@@ -107,7 +107,7 @@ function init() {
 
   //Load Model
   let loader = new THREE.GLTFLoader();
-  loader.load("./house/scene.gltf", function (gltf) {
+  loader.load("./house/scene2.gltf", function (gltf) {
     sceneQ.add(gltf.sceneQ);
     houseQ = gltf.sceneQ;
 
