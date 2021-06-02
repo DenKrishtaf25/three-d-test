@@ -52,28 +52,10 @@ function init() {
 
     animate();
   });
-}
 
-function animate() {
-  requestAnimationFrame(animate);
-  house.rotation.y += 0.009;
-  renderer.render(scene, camera);
-}
 
-init();
 
-function onWindowResize() {
-  camera.aspect = container.clientWidth / container.clientHeight;
-  camera.updateProjectionMatrix();
-
-  renderer.setSize(container.clientWidth, container.clientHeight);
-}
-
-window.addEventListener("resize", onWindowResize);
-
-///////
-
-function init() {
+  /////////////
   containerQ = document.querySelector(".scene2");
 
   //Create scene
@@ -113,16 +95,34 @@ function init() {
 
     animateQ();
   });
+  /////////
 }
-
+////
 function animateQ() {
   requestAnimationFrame(animateQ);
   houseQ.rotation.y += 0.009;
   rendererQ.render(sceneQ, cameraQ);
 }
+/////
+
+function animate() {
+  requestAnimationFrame(animate);
+  house.rotation.y += 0.009;
+  renderer.render(scene, camera);
+}
 
 init();
 
+function onWindowResize() {
+  camera.aspect = container.clientWidth / container.clientHeight;
+  camera.updateProjectionMatrix();
+
+  renderer.setSize(container.clientWidth, container.clientHeight);
+}
+
+window.addEventListener("resize", onWindowResize);
+
+///////
 function onWindowResize() {
   cameraQ.aspect = containerQ.clientWidth / containerQ.clientHeight;
   cameraQ.updateProjectionMatrix();
@@ -130,5 +130,7 @@ function onWindowResize() {
   rendererQ.setSize(containerQ.clientWidth, containerQ.clientHeight);
 }
 
-window.addEventListener("resize", onWindowResize);
+
+
+
 
