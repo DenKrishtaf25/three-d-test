@@ -11,10 +11,10 @@ function init() {
   //Create scene
   scene = new THREE.Scene();
 
-  const fov = 35;
+  const fov = 350;
   const aspect = container.clientWidth / container.clientHeight;
   const near = 0.1;
-  const far = 10;
+  const far = 1000;
 
   //Camera setup
   camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
