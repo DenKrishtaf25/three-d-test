@@ -23,8 +23,8 @@ function init() {
   const ambient = new THREE.AmbientLight(0xffffff, 2);
   scene.add(ambient);
 
-  const light = new THREE.DirectionalLight(0xffffff, 9);
-  light.position.set(8, 80, 80);
+  const light = new THREE.DirectionalLight(0xffffff, 8);
+  light.position.set(8, 80, 60);
   scene.add(light);
 
   //Renderer
