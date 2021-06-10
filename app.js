@@ -11,14 +11,14 @@ function init() {
   //Create scene
   scene = new THREE.Scene();
 
-  const fov = 60;
+  const fov = 65;
   const aspect = container.clientWidth / container.clientHeight;
   const near = 0.05;
   const far = 1000;
 
   //Camera setup
   camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-  camera.position.set(0, 1.2, 4);
+  camera.position.set(0, 1.1, 4);
 
   const ambient = new THREE.AmbientLight(0xffffff, 2);
   scene.add(ambient);
