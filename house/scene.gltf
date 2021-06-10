@@ -280,8 +280,8 @@
                     0.9702335000038147,
                     1
                 ],
-                "metallicFactor" : 0.529411792755127,
-                "roughnessFactor" : 0.3382353186607361
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5147058963775635
             }
         },
         {
@@ -294,7 +294,7 @@
                     0.11493529379367828,
                     1
                 ],
-                "metallicFactor" : 0.7573529481887817,
+                "metallicFactor" : 0.45588237047195435,
                 "roughnessFactor" : 0.3602946400642395
             }
         },
