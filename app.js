@@ -13,7 +13,7 @@ function init() {
 
   const fov = 35;
   const aspect = container.clientWidth / container.clientHeight;
-  const near = 0.9;
+  const near = 10;
   const far = 1000;
 
   //Camera setup
