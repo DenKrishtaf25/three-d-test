@@ -7,8 +7,7 @@
 body {
   font-family: sans-serif;
   overflow: hidden;
-  /* background: url("https://wallpaperaccess.com/full/1155041.jpg"); */
-  background: black;
+  background: url("https://wallpaperaccess.com/full/1155041.jpg");
 }
 
 .scene, canvas {
