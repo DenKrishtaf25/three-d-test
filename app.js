@@ -27,7 +27,7 @@ function init() {
   light.position.set(8, 80, 60);
   scene.add(light);
 
-  const ligh = new THREE.DirectionalLight(0xff0000, 2, 5);
+  const ligh = new THREE.DirectionalLight(0xff0000, 2);
   ligh.position.set(18, 20, 100);
   scene.add(ligh);
 
