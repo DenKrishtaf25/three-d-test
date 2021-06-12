@@ -27,6 +27,11 @@ function init() {
   light.position.set(8, 80, 60);
   scene.add(light);
 
+  const ligh = new THREE.DirectionalLight(0xff0000, 2, 5);
+  ligh.position.set(18, 20, 100);
+  scene.add(ligh);
+
+
   //Renderer
   renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setSize(container.clientWidth, container.clientHeight);
